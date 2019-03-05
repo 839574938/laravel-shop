@@ -40,4 +40,5 @@ class UserAddressRequest extends FormRequest
             'contact_phone' => '电话',
         ];
     }
+
 }

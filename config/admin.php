@@ -2,7 +2,7 @@
 
 return [
 
-    /*
+     /*
      * 站点标题
      */
     'name' => 'Laravel Shop',

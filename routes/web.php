@@ -1,11 +1,9 @@
 <?php
 
-Route::get('/', 'PagesController@root')->name('root');
+// Route::get('/', 'PagesController@root')->name('root');
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes(['verify' => true]);
 
@@ -20,3 +18,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 Route::redirect('/', '/products')->name('root');
 Route::get('products', 'ProductsController@index')->name('products.index');
+Route::get('products/{product}', 'ProductsController@show')->name('products.show');
+

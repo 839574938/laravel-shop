@@ -34,7 +34,7 @@ class CartController extends Controller
         return [];
     }
 
-    public function index(Request $request)
+    public function index (Request $request)
     {
         $cartItems = $request->user()->cartItems()->with(['productSku.product'])->get();
         $addresses = $request->user()->addresses()->orderBy('last_used_at', 'desc')->get();

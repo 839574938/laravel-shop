@@ -25,6 +25,7 @@ class ProductsController extends Controller
         return $content
             ->header('商品列表')
             ->body($this->grid());
+
     }
 
     /**

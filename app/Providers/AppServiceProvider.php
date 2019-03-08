@@ -43,9 +43,6 @@ class AppServiceProvider extends ServiceProvider
             return Pay::wechat($config);
         });
 
-        if ($this->app->environment() !== 'production') {
-            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-        }
 
     }
 

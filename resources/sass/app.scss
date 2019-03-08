@@ -62,78 +62,50 @@ body {
     margin-right: 5px;
   }
 
+  // 替换原有的 .search-form
   .search-form {
     padding: 0 5px 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    .category-breadcrumb {
+      line-height: 28px;
+    }
+    .all-products {
+      font-size: 12px;
+      color: #666;
+      text-decoration: none;
+    }
+    .category {
+      font-size: 12px;
+      height: 22px;
+      border: 1px solid #eee;
+      padding: 4px;
+      color: #666;
+      a {
+        text-decoration: none;
+        color: #666;
+      }
+    }
   }
-
-  .products-list {
-    padding: 0 15px;
-
-    .product-item {
-      padding: 0 5px;
-      margin-bottom: 10px;
-
-      .product-content {
-        border: 1px solid #eee;
-
-        .top {
-          padding: 5px;
-
-          img {
-            width: 100%;
-          }
-
-          .price {
-            margin-top: 5px;
-            font-size: 20px;
-            color: #ff0036;
-
-            b {
-              font-size: 14px;
-            }
-          }
-
-          .title {
-            margin-top: 10px;
-            height: 32px;
-            line-height: 12px;
-            max-height: 32px;
-
-            a {
-              font-size: 12px;
-              line-height: 14px;
-              color: #333;
-              text-decoration: none;
-            }
-          }
-        }
-
-        .bottom {
-          font-size: 12px;
-          display: flex;
-
-          .sold_count span {
-            color: #b57c5b;
-            font-weight: bold;
-          }
-
-          .review_count span {
-            color: #38b;
-            font-weight: bold;
-          }
-
-          & > div {
-            &:first-child {
-              border-right: 1px solid #eee;
-            }
-
-            padding: 10px 5px;
-            line-height: 12px;
-            flex-grow: 1;
-            border-top: 1px solid #eee;
-          }
+  .filters {
+    font-size: 12px;
+    margin-bottom: 10px;
+    &>.row {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      margin: 0 -20px;
+      .filter-key {
+        width: 150px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background: #f3f3f3;
+        color: #666;
+      }
+      .filter-values {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        a {
+          margin-right: 50px;
+          color: #666;
+          text-decoration: none;
         }
       }
     }
@@ -281,6 +253,33 @@ body {
     .tab-content {
       border: 1px solid #eee;
       padding: 20px;
+    }
+  }
+  .crowdfunding-info {
+    margin-bottom: 20px;
+    font-size: 14px;
+    .have-text {
+      font-size: 16px;
+    }
+    .total-amount {
+      .symbol {
+        font-size: 20px;
+      }
+      font-size: 32px;
+    }
+    .progress {
+      height: 10px;
+      margin-bottom: 5px;
+    }
+    .progress-info {
+      font-weight: 600;
+      margin: 10px 0;
+    }
+    .current-progress {
+      color: rgb(161, 6, 224);
+    }
+    .text-red {
+      color: red;
     }
   }
 }
@@ -530,5 +529,32 @@ body {
 
   textarea {
     border-radius: 0px;
+  }
+}
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 3px;
+  top: 40%;
+}
+
+.dropdown-submenu:hover > .dropdown-menu, .dropdown-submenu:focus > .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute !important;
+  margin-top: -30px;
+  left: 100%;
+}
+
+@media (max-width: 992px) {
+  .dropdown-menu {
+    width: 50%;
+  }
+  .dropdown-menu .dropdown-submenu {
+    width: auto;
   }
 }

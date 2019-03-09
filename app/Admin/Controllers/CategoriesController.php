@@ -71,7 +71,8 @@ class CategoriesController extends Controller
             $form->display('parent.name', '父类目');
         } else {
             // 定义一个名为『是否目录』的单选框
-           $form->radio('is_directory', '是否目录')
+
+            $form->radio('is_directory', '是否目录')
                 ->options(['1' => '是', '0' => '否'])
                 ->default('0')
                 ->rules('required');
@@ -89,6 +90,7 @@ class CategoriesController extends Controller
         // 用户输入的值通过 q 参数获取
         $search = $request->input('q');
         $result = Category::query()
+
         ->where('is_directory', boolval($request->input('is_directory', true)))
         ->where('name', 'like', '%'.$search.'%')
         ->paginate();

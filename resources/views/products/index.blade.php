@@ -44,6 +44,8 @@
                             </select>
                         </div>
                     </div>
+                      </div>
+                    </div>
                 </form>
                 <!-- 筛选组件结束 -->
                  <!-- 展示子类目开始 -->
@@ -92,6 +94,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 @section('scriptsAfterJs')
 <script>

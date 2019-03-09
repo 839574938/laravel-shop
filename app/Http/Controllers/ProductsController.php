@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Exceptions\InvalidRequestException;
 use App\Models\OrderItem;
 use App\Services\CategoryService;
+use App\Models\Category;
 
 class ProductsController extends Controller
 {

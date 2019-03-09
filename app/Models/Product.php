@@ -44,4 +44,5 @@ class Product extends Model
         return $this->hasOne(CrowdfundingProduct::class);
     }
 
+
 }

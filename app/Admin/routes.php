@@ -16,7 +16,6 @@ Route::group([
     $router->post('products', 'ProductsController@store');
     $router->get('products/{id}/edit', 'ProductsController@edit');
     $router->put('products/{id}', 'ProductsController@update');
-    $router->delete('products/{id}', 'ProductsController@destroy');
     $router->get('orders', 'OrdersController@index')->name('admin.orders.index');
     $router->get('orders/{order}', 'OrdersController@show')->name('admin.orders.show');
     $router->post('orders/{order}/ship', 'OrdersController@ship')->name('admin.orders.ship');
@@ -34,6 +33,11 @@ Route::group([
     $router->put('categories/{id}', 'CategoriesController@update');
     $router->delete('categories/{id}', 'CategoriesController@destroy');
     $router->get('api/categories', 'CategoriesController@apiIndex');
+    $router->get('crowdfunding_products', 'CrowdfundingProductsController@index');
+    $router->get('crowdfunding_products/create', 'CrowdfundingProductsController@create');
+    $router->post('crowdfunding_products', 'CrowdfundingProductsController@store');
+    $router->get('crowdfunding_products/{id}/edit', 'CrowdfundingProductsController@edit');
+    $router->put('crowdfunding_products/{id}', 'CrowdfundingProductsController@update');
 });
 
 // $router->get('products', 'ProductsController@index');

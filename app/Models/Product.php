@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Model;
@@ -10,20 +11,21 @@ class Product extends Model
     const TYPE_NORMAL = 'normal';
     const TYPE_CROWDFUNDING = 'crowdfunding';
     public static $typeMap = [
-        self::TYPE_NORMAL  => '普通商品',
+        self::TYPE_NORMAL => '普通商品',
         self::TYPE_CROWDFUNDING => '众筹商品',
     ];
     protected $fillable = [
-<<<<<<< HEAD
+
         'title', 'description', 'image', 'on_sale',
-=======
+
         'title', 'long_title', 'description', 'image', 'on_sale',
->>>>>>> cyc1
-        'rating', 'sold_count', 'review_count', 'price','type',
+
+        'rating', 'sold_count', 'review_count', 'price', 'type',
     ];
     protected $casts = [
         'on_sale' => 'boolean',
     ];
+
     public function skus()
     {
         return $this->hasMany(ProductSku::class);
@@ -48,9 +50,6 @@ class Product extends Model
         return $this->hasOne(CrowdfundingProduct::class);
     }
 
-<<<<<<< HEAD
-
-=======
     public function properties()
     {
         return $this->hasMany(ProductProperty::class);
@@ -66,5 +65,5 @@ class Product extends Model
                 return $properties->pluck('value')->all();
             });
     }
->>>>>>> cyc1
+
 }

@@ -21,8 +21,8 @@
                     @foreach($category->ancestors as $ancestor)
                       <!-- 添加一个名为该祖先类目名的链接 -->
                         <span class="category">
-                                <a href="{{ route('products.index', ['category_id' => $ancestor->id]) }}">{{ $ancestor->name }}</a>
-                               </span>
+                    <a href="{{ route('products.index', ['category_id' => $ancestor->id]) }}">{{ $ancestor->name }}</a>
+                   </span>
                         <span>&gt;</span>
                     @endforeach
                     <!-- 最后展示出当前类目名称 -->
@@ -32,22 +32,23 @@
                     @endif
                   </div>
                   <!-- 面包屑结束 -->
-                  <div class="col-md-3">
-                    <select name="order" class="form-control form-control-sm float-right">
-                      <option value="">排序方式</option>
-                      <option value="price_asc">价格从低到高</option>
-                      <option value="price_desc">价格从高到低</option>
-                      <option value="sold_count_desc">销量从高到低</option>
-                      <option value="sold_count_asc">销量从低到高</option>
-                      <option value="rating_desc">评价从高到低</option>
-                      <option value="rating_asc">评价从低到高</option>
-                    </select>
-                  </div>
+                  <div class="col-auto"><input type="text" class="form-control form-control-sm" name="search" placeholder="搜索"></div>
+                  <div class="col-auto"><button class="btn btn-primary btn-sm">搜索</button></div>
                 </div>
+              </div>
+              <div class="col-md-3">
+                <select name="order" class="form-control form-control-sm float-right">
+                  <option value="">排序方式</option>
+                  <option value="price_asc">价格从低到高</option>
+                  <option value="price_desc">价格从高到低</option>
+                  <option value="sold_count_desc">销量从高到低</option>
+                  <option value="sold_count_asc">销量从低到高</option>
+                  <option value="rating_desc">评价从高到低</option>
+                  <option value="rating_asc">评价从低到高</option>
+                </select>
               </div>
             </div>
           </form>
-          <!-- 筛选组件结束 -->
           <!-- 展示子类目开始 -->
           <div class="filters">
             <!-- 如果当前是通过类目筛选，并且此类目是一个父类目 -->
@@ -64,8 +65,6 @@
             @endif
           </div>
           <!-- 展示子类目结束 -->
-
-
           <div class="row products-list">
             @foreach($products as $product)
               <div class="col-3 product-item">
@@ -89,27 +88,20 @@
               </div>
             @endforeach
           </div>
-          <div class="float-right">{{ $products->appends($filters)->render() }}</div>
-        </div>
+          <div class="float-right">{{ $products->appends($filters)->render() }}</div>  </div>
       </div>
     </div>
   </div>
-
 @endsection
 @section('scriptsAfterJs')
   <script>
-    var filters = {
-    !!json_encode($filters)
-    !!
-    }
-    ;
+    var filters = {!! json_encode($filters) !!};
     $(document).ready(function () {
       $('.search-form input[name=search]').val(filters.search);
       $('.search-form select[name=order]').val(filters.order);
-      $('.search-form select[name=order]').on('change', function () {
+      $('.search-form select[name=order]').on('change', function() {
         $('.search-form').submit();
       });
     })
-
   </script>
 @endsection

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-
->>>>>>> cyc1
 namespace App\Http\Controllers;
 
 use App\Models\Installment;
@@ -31,20 +27,11 @@ class InstallmentsController extends Controller
         $items = $installment->items()->orderBy('sequence')->get();
         return view('installments.show', [
             'installment' => $installment,
-<<<<<<< HEAD
             'items'       => $items,
             // 下一个未完成还款的还款计划
             'nextItem'    => $items->where('paid_at', null)->first(),
         ]);
     }
-=======
-            'items' => $items,
-            // 下一个未完成还款的还款计划
-            'nextItem' => $items->where('paid_at', null)->first(),
-        ]);
-    }
-
->>>>>>> cyc1
     public function payByAlipay(Installment $installment)
     {
         if ($installment->order->closed) {
@@ -62,7 +49,6 @@ class InstallmentsController extends Controller
         // 调用支付宝的网页支付
         return app('alipay')->web([
             // 支付订单号使用分期流水号+还款计划编号
-<<<<<<< HEAD
             'out_trade_no' => $installment->no.'_'.$nextItem->sequence,
             'total_amount' => $nextItem->total,
             'subject'      => '支付 Laravel Shop 的分期订单：'.$installment->no,
@@ -71,17 +57,6 @@ class InstallmentsController extends Controller
             'return_url'   => route('installments.alipay.return'),
         ]);
     }
-=======
-            'out_trade_no' => $installment->no . '_' . $nextItem->sequence,
-            'total_amount' => $nextItem->total,
-            'subject' => '支付 Laravel Shop 的分期订单：' . $installment->no,
-            // 这里的 notify_url 和 return_url 可以覆盖掉在 AppServiceProvider 设置的回调地址
-            'notify_url' => ngrok_url('installments.alipay.notify'),
-            'return_url' => route('installments.alipay.return'),
-        ]);
-    }
-
->>>>>>> cyc1
     public function alipayReturn()
     {
         try {
@@ -122,15 +97,9 @@ class InstallmentsController extends Controller
         \DB::transaction(function () use ($data, $no, $installment, $item) {
             // 更新对应的还款计划
             $item->update([
-<<<<<<< HEAD
                 'paid_at'        => Carbon::now(), // 支付时间
                 'payment_method' => 'alipay', // 支付方式
                 'payment_no'     => $data->trade_no, // 支付宝订单号
-=======
-                'paid_at' => Carbon::now(), // 支付时间
-                'payment_method' => 'alipay', // 支付方式
-                'payment_no' => $data->trade_no, // 支付宝订单号
->>>>>>> cyc1
             ]);
 
             // 如果这是第一笔还款
@@ -139,15 +108,9 @@ class InstallmentsController extends Controller
                 $installment->update(['status' => Installment::STATUS_REPAYING]);
                 // 将分期付款对应的商品订单状态改为已支付
                 $installment->order->update([
-<<<<<<< HEAD
                     'paid_at'        => Carbon::now(),
                     'payment_method' => 'installment', // 支付方式为分期付款
                     'payment_no'     => $no, // 支付订单号为分期付款的流水号
-=======
-                    'paid_at' => Carbon::now(),
-                    'payment_method' => 'installment', // 支付方式为分期付款
-                    'payment_no' => $no, // 支付订单号为分期付款的流水号
->>>>>>> cyc1
                 ]);
                 // 触发商品订单已支付的事件
                 event(new OrderPaid($installment->order));
@@ -162,10 +125,6 @@ class InstallmentsController extends Controller
 
         return app('alipay')->success();
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> cyc1
     public function wechatRefundNotify(Request $request)
     {
         // 给微信的失败响应

@@ -8,6 +8,8 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use App\Models\UserAddress;
 use App\Policies\UserAddressPolicy;
 use App\Models\Order;
+use App\Models\Installment;
+use App\Policies\InstallmentPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,7 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
         UserAddress::class => UserAddressPolicy::class,
         Order::class => OrderPolicy::class,
+        Installment::class => InstallmentPolicy::class,
     ];
 
     /**

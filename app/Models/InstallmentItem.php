@@ -38,9 +38,9 @@ class InstallmentItem extends Model
     }
 
     // 创建一个访问器，返回当前还款计划需还款的总金额
-    public function getTotalAttribute()
+     public function getTotalAttribute()
     {
-        $total = (new BigNumber($this->base, 2))->add($this->fee);
+        $total = big_number($this->base)->add($this->fee);
         if (!is_null($this->fine)) {
             $total->add($this->fine);
         }

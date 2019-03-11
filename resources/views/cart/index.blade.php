@@ -190,7 +190,7 @@
                 });
                 html += '</div>';
                 swal({content: $(html)[0], icon: 'error'})
-              }else if (error.response.status === 403){
+              } else if (error.response.status === 403) {
                 swal(error.response.data.msg, '', 'error');
               } else {
                 // 其他情况应该是系统挂了
@@ -210,23 +210,23 @@
         }
         // 调用检查接口
         axios.get('/coupon_codes/' + encodeURIComponent(code))
-          .then(function (response) {  // then 方法的第一个参数是回调，请求成功时会被调用
-            $('#coupon_desc').text(response.data.description); // 输出优惠信息
-            $('input[name=coupon_code]').prop('readonly', true); // 禁用输入框
-            $('#btn-cancel-coupon').show(); // 显示 取消 按钮
-            $('#btn-check-coupon').hide(); // 隐藏 检查 按钮
-          }, function (error) {
-            // 如果返回码是 404，说明优惠券不存在
-            if (error.response.status === 404) {
-              swal('优惠码不存在', '', 'error');
-            } else if (error.response.status === 403) {
-              // 如果返回码是 403，说明有其他条件不满足
-              swal(error.response.data.msg, '', 'error');
-            } else {
-              // 其他错误
-              swal('系统内部错误', '', 'error');
-            }
-          })
+            .then(function (response) {  // then 方法的第一个参数是回调，请求成功时会被调用
+              $('#coupon_desc').text(response.data.description); // 输出优惠信息
+              $('input[name=coupon_code]').prop('readonly', true); // 禁用输入框
+              $('#btn-cancel-coupon').show(); // 显示 取消 按钮
+              $('#btn-check-coupon').hide(); // 隐藏 检查 按钮
+            }, function (error) {
+              // 如果返回码是 404，说明优惠券不存在
+              if (error.response.status === 404) {
+                swal('优惠码不存在', '', 'error');
+              } else if (error.response.status === 403) {
+                // 如果返回码是 403，说明有其他条件不满足
+                swal(error.response.data.msg, '', 'error');
+              } else {
+                // 其他错误
+                swal('系统内部错误', '', 'error');
+              }
+            })
       });
 
       // 隐藏 按钮点击事件

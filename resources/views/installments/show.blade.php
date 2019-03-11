@@ -52,7 +52,12 @@
                   <div class="value">{{ $nextItem->due_date->format('Y-m-d') }}</div>
                 </div>
                 <div class="payment-buttons">
+<<<<<<< HEAD
                   <a class="btn btn-primary btn-sm" href="{{ route('installments.alipay', ['installment' => $installment->id]) }}">支付宝支付</a>
+=======
+                  <a class="btn btn-primary btn-sm"
+                     href="{{ route('installments.alipay', ['installment' => $installment->id]) }}">支付宝支付</a>
+>>>>>>> cyc1
                   <button class="btn btn-sm btn-success" id='btn-wechat'>不能微信支付哦</button>
                 </div>
               @endif
@@ -95,7 +100,13 @@
                 <td class="text-right">￥{{ $item->total }}</td>
               </tr>
             @endforeach
+<<<<<<< HEAD
             <tr><td colspan="7"></td></tr>
+=======
+            <tr>
+              <td colspan="7"></td>
+            </tr>
+>>>>>>> cyc1
           </table>
         </div>
       </div>

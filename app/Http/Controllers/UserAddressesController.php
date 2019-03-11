@@ -18,13 +18,13 @@ class UserAddressesController extends Controller
     }
 
     //创建
-    public function create ()
+    public function create()
     {
         return view('user_addresses.create_and_edit', ['address' => new UserAddress()]);
     }
 
     //验证
-    public function store (UserAddressRequest $request)
+    public function store(UserAddressRequest $request)
     {
         $request->user()->addresses()->create($request->only([
             'province',

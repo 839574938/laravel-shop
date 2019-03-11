@@ -14941,6 +14941,8 @@ a.text-dark:focus {
   }
 }
 
+/* universal */
+
 body {
   font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
   font-size: 14px;
@@ -14991,6 +14993,11 @@ body {
 
 .footer .container p a {
   color: inherit;
+}
+
+.products-index-page .pagination,
+.products-favorites-page .pagination {
+  margin-right: 5px;
 }
 
 .products-index-page .products-list,
@@ -15076,11 +15083,6 @@ body {
 .products-index-page .products-list .product-item .product-content .bottom > div:first-child,
 .products-favorites-page .products-list .product-item .product-content .bottom > div:first-child {
   border-right: 1px solid #eee;
-}
-
-.products-index-page .pagination,
-.products-favorites-page .pagination {
-  margin-right: 5px;
 }
 
 .products-index-page .search-form,
@@ -15325,6 +15327,34 @@ body {
   color: red;
 }
 
+.products-show-page .properties-list {
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 20px;
+}
+
+.products-show-page .properties-list .properties-list-title {
+  padding: 5px 0;
+  color: #999;
+  font-weight: 700;
+}
+
+.products-show-page .properties-list .properties-list-body {
+  font-size: 12px;
+  padding: 5px 0;
+  list-style: none;
+  text-indent: 0;
+}
+
+.products-show-page .properties-list .properties-list-body li {
+  display: inline-block;
+  width: 30%;
+  overflow: hidden;
+}
+
+.products-show-page .product-description img {
+  max-width: 100%;
+}
+
 .cart-index-page .product_list .preview {
   margin-right: 20px;
 }
@@ -15431,13 +15461,6 @@ body {
   font-size: 12px;
 }
 
-.orders-show-page .payment-buttons,
-.orders-show-page .receive-button,
-.orders-show-page .refund-button {
-  margin-top: 10px;
-  padding-right: 10px;
-}
-
 .orders-show-page .vertical-middle {
   vertical-align: middle;
 }
@@ -15517,6 +15540,13 @@ body {
   display: inline-block;
   width: 150px;
   padding-right: 20px;
+}
+
+.orders-show-page .payment-buttons,
+.orders-show-page .receive-button,
+.orders-show-page .refund-button {
+  margin-top: 10px;
+  padding-right: 10px;
 }
 
 .orders-review-show-page .vertical-middle {
@@ -15645,5 +15675,78 @@ body {
   .dropdown-menu .dropdown-submenu {
     width: auto;
   }
+}
+
+.installments-show-page {
+  font-size: 12px;
+}
+
+.installments-show-page .table {
+  margin-bottom: 0;
+}
+
+.installments-show-page .table .repaid {
+  color: green;
+}
+
+.installments-show-page .table .overdue {
+  color: red;
+}
+
+.installments-show-page .item-amount {
+  padding-right: 20px;
+  width: 200px;
+}
+
+.installments-show-page .installment-top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.installments-show-page .installment-info {
+  width: 50%;
+  border-right: 1px solid #ddd;
+}
+
+.installments-show-page .installment-info .line {
+  display: flex;
+  flex-direction: row;
+}
+
+.installments-show-page .installment-info .line .line-label {
+  width: 80px;
+  text-align: right;
+}
+
+.installments-show-page .installment-info .line .line-value {
+  padding-left: 20px;
+  flex-shrink: 100;
+}
+
+.installments-show-page .installment-next {
+  width: 50%;
+  font-family: Verdana, Tahoma, Helvetica, Arial;
+}
+
+.installments-show-page .installment-next .installment-clear {
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.installments-show-page .installment-next .total-amount {
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.installments-show-page .installment-next .value {
+  display: inline-block;
+  width: 150px;
+  padding-right: 20px;
+}
+
+.installments-show-page .payment-buttons {
+  margin-top: 10px;
+  padding-right: 10px;
 }
 

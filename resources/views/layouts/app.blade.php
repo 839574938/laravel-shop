@@ -16,10 +16,26 @@
         <div class="container">
             @yield('content')
         </div>
-        @include('layouts._footer')
+            {{--@include('layouts._footer')--}}
     </div>
     <!-- JS 脚本 -->
     <script src="{{ mix('js/app.js') }}"></script>
     @yield('scriptsAfterJs')
+    {{--<script>--}}
+        {{--$(".user").each( function (i) {--}}
+             {{--$(this).hover(--}}
+                 {{--function () {--}}
+                     {{--$(".icon-item").eq(i).animate({--}}
+                         {{--marginLeft: "3px",--}}
+                     {{--},150)--}}
+                 {{--},--}}
+                 {{--function () {--}}
+                     {{--$(".icon-item").eq(i).animate({--}}
+                         {{--marginLeft: "-3px",--}}
+                     {{--},150)--}}
+                 {{--}--}}
+             {{--);--}}
+        {{--});--}}
+    {{--</script>--}}
 </body>
 </html>

@@ -660,3 +660,34 @@ body {
     padding-right: 10px;
   }
 }
+
+.navbar-brand {
+  width: 50px;
+  height: 50px;
+  background: url("../../public/images/logo.png") no-repeat -3px 0px/270% 100%;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.img > a > img{
+  width: 200px;
+  height: 150px;
+}
+
+.dropdown-item{
+  padding: 0.4rem 1.5rem;
+}
+.dropdown-item:hover .icon-item{
+  transform: translateX(5px);
+}
+.icon-item{
+  transition: .3s;
+}
+.fa-angle-right{
+  color: #47bbe1;
+  margin-right: 2px;
+}
+
+

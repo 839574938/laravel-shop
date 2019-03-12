@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Branding Image -->
     <a class="navbar-brand " href="{{ url('/') }}">
-      14IOT-E-COMMERCE
+      {{--<img class="logo" src="{{ URL::asset('images/logo.png') }}" alt="">--}}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,13 +43,29 @@
               {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a href="{{ route('user_addresses.index') }}" class="dropdown-item">收货地址</a>
-              <a href="{{ route('orders.index') }}" class="dropdown-item">我的订单</a>
+              <a href="{{ route('user_addresses.index') }}" class="dropdown-item user">
+                <div class="icon-item"><i class="fa fa-angle-right" aria-hidden="true"></i> 收货地址</div>
+
+
+              </a>
+              <a href="{{ route('orders.index') }}" class="dropdown-item user">
+                <div class="icon-item"><i class="fa fa-angle-right" aria-hidden="true"></i> 我的订单</div>
+
+              </a>
               <!-- 放在『我的订单』下方 -->
-              <a href="{{ route('installments.index') }}" class="dropdown-item">分期付款</a>
-              <a href="{{ route('products.favorites') }}" class="dropdown-item">我的收藏</a>
-              <a class="dropdown-item" id="logout" href="#"
-                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">退出登录</a>
+              <a href="{{ route('installments.index') }}" class="dropdown-item user">
+                <div class="icon-item"><i class="fa fa-angle-right" aria-hidden="true"></i> 分期付款</div>
+
+              </a>
+              <a href="{{ route('products.favorites') }}" class="dropdown-item user" >
+                <div class="icon-item"><i class="fa fa-angle-right" aria-hidden="true"></i> 我的收藏</div>
+
+              </a>
+              <a class="dropdown-item user" id="logout" href="#"
+                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <div class="icon-item"><i class="fa fa-angle-right" aria-hidden="true"></i> 退出登录</div>
+
+              </a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
               </form>

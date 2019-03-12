@@ -1,7 +1,7 @@
 <?php
 
 // Route::get('/', 'PagesController@root')->name('root');
-
+Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('user_addresses', 'UserAddressesController@index')->name('user_addresses.index');
     Route::get('user_addresses/create', 'UserAddressesController@create')->name('user_addresses.create');
@@ -23,6 +23,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('orders', 'OrdersController@index')->name('orders.index');
     //订单详情页
     Route::get('orders/{order}', 'OrdersController@show')->name('orders.show');
+    //删除订单
+
     //支付环境
     Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')->name('payment.alipay');
     //回调
@@ -46,8 +48,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('installments/{installment}', 'InstallmentsController@show')->name('installments.show');
     Route::get('installments/{installment}/alipay', 'InstallmentsController@payByAlipay')->name('installments.alipay');
     Route::get('installments/alipay/return', 'InstallmentsController@alipayReturn')->name('installments.alipay.return');
-
-
 
 });
 
